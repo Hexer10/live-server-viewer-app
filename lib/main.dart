@@ -1,12 +1,7 @@
 import 'package:sourcemod_liveview/playerlist.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:steam_login/steam_login.dart';
 
-=======
 import 'package:sourcemod_liveview/webview.dart';
->>>>>>> ec999fd... Update
 import 'homepage.dart';
 import 'utilis.dart';
 
@@ -23,11 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/login': (context) => WebviewScaffold(
-            url: OpenId.raw('https://azorne.net',
-                    'https://azorne.net/script/validate.html', null)
-                .authUrl()
-                .toString()),
+        '/login': (context) => LoginWebView(),
         '/list': (context) => PlayerList(),
       },
       title: 'Jailbreak Chat',

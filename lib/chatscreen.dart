@@ -75,28 +75,6 @@ class ChatScreenState extends State<ChatScreen> {
     super.initState();
     socket = ServerSocket();
 
-<<<<<<< HEAD
-    socket.initSocket();
-    socket.onConnection.listen((_) => Alert(
-            context: context,
-            title: 'Success',
-            desc: 'Connected to server successfully!',
-            type: AlertType.success)
-        .show());
-
-    socket.onConnectionClose.listen((_) => Alert(
-            context: context,
-            title: 'Warning',
-            desc: 'Connection closed!',
-            type: AlertType.warning)
-        .show());
-
-    socket.onChatMessage.listen((message) {
-      if (!mounted) return;
-
-      setState(() {
-        _messages.insert(0, message);
-=======
     socket.initSocket().then((_) {
       socket.onConnection.listen((_) => Alert(
               context: context,
@@ -120,7 +98,6 @@ class ChatScreenState extends State<ChatScreen> {
         setState(() {
           _messages.insert(0, message);
         });
->>>>>>> ec999fd... Update
       });
     });
   }

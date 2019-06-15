@@ -95,16 +95,12 @@ class ServerSocket {
   int get currentSlot => _currentSlot;
 
   Future<void> initSocket() async {
-<<<<<<< HEAD
-    _socket = await Socket.connect('csgo.azorne.net', 50001);
-=======
     if (_socket != null) {
       //We dont want 2 open sockets
       _socket.destroy();
     }
 
     _socket = await Socket.connect(serverIP, serverPort);
->>>>>>> ec999fd... Update
     _socket.transform(utf8.decoder).listen(_handlePackets, onDone: () {
       if (_ignore) {
         _ignore = false;
@@ -127,11 +123,7 @@ class ServerSocket {
     _ignore = true;
     try {
       await _socket.close();
-<<<<<<< HEAD
-    } finally {
-=======
     } on SocketException {} finally {
->>>>>>> ec999fd... Update
       await initSocket();
     }
   }

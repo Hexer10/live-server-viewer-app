@@ -1,12 +1,6 @@
 import 'dart:convert';
 
-<<<<<<< HEAD
 
-import 'package:sourcemod_liveview/drawer.dart';
-import 'package:sourcemod_liveview/socket.dart';
-
-=======
->>>>>>> ec999fd... Update
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -35,38 +29,8 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-<<<<<<< HEAD
-    flutterWebviewPlugin.onUrlChanged.listen((url) async {
-      print('URL changed to $url');
-      final openid = OpenId.fromUri(Uri.parse(url));
-      if (openid.mode == 'id_res') {
-        print('Closing...');
-        flutterWebviewPlugin.close();
-        Navigator.popAndPushNamed(context, '/');
 
-        var prefs = await SharedPreferences.getInstance();
-        final steamid = await openid.validate();
-        await prefs.setString('steamid', steamid);
-
-        setState(() {
-          _steamid = steamid;
-        });
-      } else {
-        print('Failed...');
-
-        await flutterWebviewPlugin.close();
-        await Navigator.popAndPushNamed(context, '/');
-        Alert(context: context, title: 'Login failed!', desc: 'Failed: ${openid.mode}');
-      }
-    });
-
-    flutterWebviewPlugin.onHttpError.listen((error) => print('HTTP Error: ${error.url} ${error.code}'));
-    flutterWebviewPlugin.onStateChanged.listen((state) => print('STATE Change: ${state.url} ${state.type}'));
-
-    SharedPreferences.getInstance().then((prefs) {
-=======
     onSteamIDUpdate.listen((steamid) {
->>>>>>> ec999fd... Update
       setState(() {
         _steamid = steamid;
       });
@@ -103,15 +67,7 @@ class HomePageState extends State<HomePage> {
     if (_steamid != null && _steamid.isNotEmpty) {
       actions.add(IconButton(
         onPressed: () async {
-<<<<<<< HEAD
-          setState(() {
-            _steamid = null;
-          });
-          var prefs = await SharedPreferences.getInstance();
-          await prefs.remove('steamid');
-=======
           addSteamID(null);
->>>>>>> ec999fd... Update
         },
         icon: Icon(Icons.exit_to_app),
       ));
