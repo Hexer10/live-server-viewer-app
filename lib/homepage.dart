@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:sourcemod_liveview/drawer.dart';
 import 'package:sourcemod_liveview/socket.dart';
@@ -20,7 +19,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   // This widget is the root of your application.
 
-  final flutterWebviewPlugin = FlutterWebviewPlugin();
   final _serverSocket = ServerSocket();
 
   String _steamid;
