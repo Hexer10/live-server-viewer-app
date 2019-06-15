@@ -1,0 +1,9 @@
+config:
+  web:
+    url: 'https://example.com' # Your domain
+    validate:  'validate.html' # Path to validate file
+  server:
+    ip: 'myserver.net' # Server IP
+    port: '50001' # Server Port
+  steam:
+    apikey: 'E4***************A' #Steam APIKey

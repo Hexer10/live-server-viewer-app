@@ -1,0 +1,45 @@
+name: sourcemod_liveview
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  http: ^0.12.0+2
+  url_launcher: 4.1.0+1
+  shared_preferences: 0.4.3
+  steam_login: ^1.0.3
+  flutter_webview_plugin: 0.3.5
+  rflutter_alert: ^1.0.2
+  auto_size_text: ^2.0.0+2
+<<<<<<< HEAD
+  firebase_core: ^0.4.0+3
+
+=======
+  webview_flutter: ^0.3.9+1
+  yaml: ^2.1.15
+>>>>>>> ec999fd... Update
+
+
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.7.2
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "icon.png"
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/config.yaml
