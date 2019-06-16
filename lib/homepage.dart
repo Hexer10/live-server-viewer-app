@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -27,7 +26,6 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-
     onSteamIDUpdate.listen((steamid) {
       setState(() {
         _steamid = steamid;
@@ -39,10 +37,8 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var actions = <Widget>[];
 
-
     actions.add(IconButton(
       onPressed: () async {
-
         _serverSocket.write(jsonEncode({'type': 4}));
         Navigator.pushNamed(context, '/list');
       },
