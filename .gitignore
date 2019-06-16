@@ -72,5 +72,6 @@
 # Configs
 /assets/config.yaml
 /android/key.properties
+/android/app/google-services.json
 
 gen/
