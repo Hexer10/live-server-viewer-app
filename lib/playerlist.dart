@@ -90,14 +90,16 @@ class PlayerListState extends State<PlayerList> {
         body: Column(
           children: <Widget>[
             Flexible(
-              child: ListView.separated(
-                padding: EdgeInsets.all(8),
-                itemBuilder: (_, index) => _players[index],
-                itemCount: _players.length,
-                separatorBuilder: (_, index) => Divider(
-                      color: Colors.black,
+              child: _players.isEmpty
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.separated(
+                      padding: EdgeInsets.all(8),
+                      itemBuilder: (_, index) => _players[index],
+                      itemCount: _players.length,
+                      separatorBuilder: (_, index) => Divider(
+                        color: Colors.black,
+                      ),
                     ),
-              ),
             )
           ],
         ));
