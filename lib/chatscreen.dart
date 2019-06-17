@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class ChatScreenState extends State<ChatScreen> {
 
   final TextEditingController _chatController = TextEditingController();
   final List<ChatMessage> _messages = <ChatMessage>[];
+  StreamSubscription _messageSub;
   String _name;
   String _icon;
 
@@ -90,11 +92,8 @@ class ChatScreenState extends State<ChatScreen> {
               type: AlertType.warning)
           .show());
 
-      socket.onChatMessage.listen((message) {
-        if (!mounted) {
-          return;
-        }
 
+      _messageSub = socket.onChatMessage.listen((message) {
         setState(() {
           _messages.insert(0, message);
         });
@@ -105,7 +104,7 @@ class ChatScreenState extends State<ChatScreen> {
   @override
   void dispose() {
     super.dispose();
-    socket = null;
+    _messageSub.cancel();
   }
 
   Widget _chatEnvironment() => IconTheme(

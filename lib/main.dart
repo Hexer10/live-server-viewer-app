@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:sourcemod_liveview/playerlist.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +13,14 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  static var analytics = FirebaseAnalytics();
+  static var observer = FirebaseAnalyticsObserver(analytics: analytics);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: <NavigatorObserver>[observer],
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
