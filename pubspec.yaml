@@ -39,3 +39,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/config.yaml
+  fonts:
+    - family: Hind
+      fonts:
+        - asset: fonts/Hind-Regular.ttf
+        - asset: fonts/Hind-light.ttf
+          style: normal

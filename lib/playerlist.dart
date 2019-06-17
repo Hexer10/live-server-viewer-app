@@ -91,7 +91,25 @@ class PlayerListState extends State<PlayerList> {
           children: <Widget>[
             Flexible(
               child: _players.isEmpty
-                  ? Center(child: CircularProgressIndicator())
+                  ? Center(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 25),
+                              child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.lightBlueAccent))),
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                              child: Text(_warnText,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      height: 0.8,
+                                      color: Colors.lightBlue,
+                                      fontFamily: 'Hind')))
+                        ]))
                   : ListView.separated(
                       padding: EdgeInsets.all(8),
                       itemBuilder: (_, index) => _players[index],
